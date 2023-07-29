@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 // Add your 5 image paths here
 const imagePaths = [
@@ -14,49 +16,82 @@ const ProductItem = ({ item, navigation }) => {
   const randomImageIndex = Math.floor(Math.random() * imagePaths.length);
   console.log(navigation);
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPressOut={() =>
-          navigation.navigate("ProductScreen", { productId: item.Id })
-        }
-      >
-        <Image source={imagePaths[randomImageIndex]} style={styles.image} />
-        <Text style={styles.header}>{item?.Title}</Text>
-        <View style={styles.row}>
+    <TouchableOpacity
+      onPressOut={() =>
+        navigation.navigate("ProductScreen", { productId: item.Id })
+      }
+    >
+      <View style={styles.container}>
+        {/* Container for Image */}
+        <View>
+          <Image source={imagePaths[randomImageIndex]} style={styles.image} />
+        </View>
+
+        {/* Container for Text Items */}
+        <View style={styles.textContainer}>
+          <Text style={styles.header}>Affaan's Game</Text>
+          <View style={styles.sport}>
+            <Ionicons name="md-football-outline" size={16} color="black" />
+            <Text style={styles.address}>Football</Text>
+            <Text style={styles.address}>5 v 5</Text>
+          </View>
+          <Text style={styles.address}>Sat</Text>
+          <Text style={styles.address}>29 July</Text>
+          <Text style={styles.address}>7:00 am - 9:00 am</Text>
+          <Text style={styles.address}>Turf Town, Guduvanchery</Text>
+
+          {/* Stars Container */}
           <View style={styles.starsContainer}>
-            <MaterialIcons name="star" size={18} color="gold" />
-            <Text style={styles.starsText}> ₹ 999</Text>
+            {/* <MaterialIcons name="star" size={18} color="gold" /> */}
+            <Text style={styles.address}>Booked</Text>
+            <Text style={styles.starsText}> ₹ 999/ p</Text>
           </View>
         </View>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "90%", // Set the width to your desired size
-    height: 350, // Set the height to your desired size
-    alignItems: "center",
+    width: "95%", // Set the width to your desired size
+    height: 170, // Set the height to your desired size
+    display: "flex",
+    flexDirection: "row",
     justifyContent: "flex-start",
     alignSelf: "center",
     padding: 8,
-    backgroundColor: "blue",
+    backgroundColor: "#112B3C",
     margin: 10,
     borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
   },
   image: {
-    width: 300,
-    height: 200,
+    width: 100,
+    height: 140,
     borderRadius: 10,
+    alignSelf: "flex-start",
   },
   header: {
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: "bold",
     marginTop: 5,
+    color: "white",
   },
-  body: {
-    fontSize: 10,
+  address: {
+    fontSize: 14,
+    marginRight: 20,
+    color: "white",
+  },
+  textContainer: {
+    flex: 1, // This will make the text items take the remaining width
+    marginLeft: 10, // Add some spacing between the image and text items
+    justifyContent: "space-between", // Align the text items vertically
+  },
+  sport: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   starsContainer: {
     flexDirection: "row",
@@ -66,6 +101,7 @@ const styles = StyleSheet.create({
   starsText: {
     fontSize: 12,
     marginLeft: 10,
+    color: "white",
   },
 });
 

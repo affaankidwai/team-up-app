@@ -1,16 +1,34 @@
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { StyleSheet, Text, View, StatusBar, ScrollView } from "react-native";
 import React from "react";
 import ProductCard from "../Components/Cards/ProductCard";
+import GreetCard from "../Components/Cards/GreetCard";
+import SearchBar from "../Components/Buttons/SearchBar";
+import TopBar from "../Components/Buttons/TopBar";
+import CarouselComponent from "../Components/Carousel/Carousel";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="transparent" translucent />
       <View style={styles.topText}>
-        <Text>HomeScreen</Text>
+        {/* <Text>HomeScreen</Text>
 
-        <Text>liuhgoisd h</Text>
-        <ProductCard />
+        <Text>liuhgoisd h</Text> */}
+        <TopBar />
+
+        <GreetCard />
+        <SearchBar />
+        <View style={styles.topT}>
+          <Text style={styles.topText}>Top Games near you</Text>
+        </View>
+        {/* <CarouselComponent /> */}
+        <ScrollView contentContainerStyle={styles.cont}>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </ScrollView>
       </View>
     </View>
   );
@@ -20,9 +38,17 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight, // Add padding top equal to the height of the status bar
+    paddingTop: StatusBar.currentHeight,
+    marginTop: 50,
+  },
+  cont: {
+    paddingVertical: 20,
+  },
+  topT: {
+    marginTop: 20,
+    marginLeft: 12,
   },
   topText: {
-    marginTop: 50,
+    fontSize: 22,
   },
 });
