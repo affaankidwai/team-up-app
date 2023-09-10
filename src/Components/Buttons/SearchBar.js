@@ -8,7 +8,7 @@ const SearchBar = () => {
       <AntDesign name="search1" size={20} color="#1E4BA3" />
       <TextInput
         style={styles.searchInput}
-        placeholder="  Search"
+        placeholder="  Venues, Teams, Matches"
         placeholderTextColor="#27374D"
       />
     </View>

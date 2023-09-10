@@ -3,6 +3,7 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import ProductScreen from "../../Screens/ProductScreen";
 
 // Add your 5 image paths here
 const imagePaths = [

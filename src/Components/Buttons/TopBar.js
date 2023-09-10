@@ -10,7 +10,7 @@ const TopBar = () => {
         <TouchableOpacity style={styles.locationContainer}>
           <Text style={styles.changeText}>Change</Text>
           <View style={styles.location}>
-            <SimpleLineIcons name="location-pin" size={24} color="black" />
+            <SimpleLineIcons name="location-pin" size={24} color="white" />
             <Text style={styles.locationText}>Chennai</Text>
           </View>
         </TouchableOpacity>
@@ -27,10 +27,14 @@ export default TopBar;
 const styles = StyleSheet.create({
   container: {
     alignContent: "space-between",
+    backgroundColor: "#00245A",
   },
-  locationContainer: {},
+  locationContainer: {
+    margin: 10,
+  },
   changeText: {
-    marginLeft: 10,
+    marginLeft: 30,
+    color: "white",
   },
   location: {
     flexDirection: "row",
@@ -38,5 +42,6 @@ const styles = StyleSheet.create({
   },
   locationText: {
     marginLeft: 5,
+    color: "white",
   },
 });

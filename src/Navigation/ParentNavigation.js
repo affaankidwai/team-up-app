@@ -25,6 +25,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Image } from "react-native";
 import HomeScreen from "../Screens/HomeScreen";
 import ExploreScreen from "../Screens/ExploreScreen";
+import SportScreen from "../Screens/SportScreen";
+import ProfileScreen from "../Screens/ProfileScreen";
+import ProductScreen from "../Screens/ProductScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -76,9 +79,9 @@ const ParentNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Categories" component={ExploreScreen} />
-      <Tab.Screen name="MyCart" component={HomeScreen} />
-      <Tab.Screen name="ProductInfo" component={ExploreScreen} />
-      <Tab.Screen name="Profile" component={ExploreScreen} />
+      <Tab.Screen name="MyCart" component={SportScreen} />
+      <Tab.Screen name="ProductInfo" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={ProductScreen} />
     </Tab.Navigator>
   );
 };
